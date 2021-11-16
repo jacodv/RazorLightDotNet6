@@ -52,7 +52,7 @@ namespace Jdv.Razor
 				if (templateData == null || data == null)
 					return string.Empty;
 				if (!templateData.Contains("#pragma warning disable"))
-					templateData = $"@{{#pragma warning disable}}\n@using System;@using System.Linq;@using System.Collections.Generic;\n{templateData}";
+					templateData = $"@{{#pragma warning disable}}\n@using System;@using System.Linq;@using System.Collections.Generic\n{templateData}";
 				if (RazorConfigSettings.RazorViolationStrings.Any(templateData.Contains))
 					throw new RazorViolationException($"Invalid assembly reference");
 
