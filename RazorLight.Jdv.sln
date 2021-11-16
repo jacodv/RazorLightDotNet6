@@ -9,9 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorLight.Precompile", "sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorLight.Tests", "tests\RazorLight.Tests\RazorLight.Tests.csproj", "{65D0ED4F-B7FA-4A24-ABF9-41D183856CBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jdv.Razor", "RazorLight.Jdv\Jdv.Razor\Jdv.Razor.csproj", "{B67E30E9-3356-4585-978F-49E0676E1C4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jdv.Razor", "RazorLight.Jdv\Jdv.Razor\Jdv.Razor.csproj", "{B67E30E9-3356-4585-978F-49E0676E1C4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jdv.Razor.Tests", "RazorLight.Jdv\Jdv.Razor.Tests\Jdv.Razor.Tests.csproj", "{5CE40C98-5A27-41BB-B0FE-8E58FA947AEB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jdv.Razor.Tests", "RazorLight.Jdv\Jdv.Razor.Tests\Jdv.Razor.Tests.csproj", "{5CE40C98-5A27-41BB-B0FE-8E58FA947AEB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A2028B58-949D-4524-8EB7-48C8A7D7A722}"
 	ProjectSection(SolutionItems) = preProject
