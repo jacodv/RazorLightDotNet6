@@ -13,6 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jdv.Razor", "RazorLight.Jdv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jdv.Razor.Tests", "RazorLight.Jdv\Jdv.Razor.Tests\Jdv.Razor.Tests.csproj", "{5CE40C98-5A27-41BB-B0FE-8E58FA947AEB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A2028B58-949D-4524-8EB7-48C8A7D7A722}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
