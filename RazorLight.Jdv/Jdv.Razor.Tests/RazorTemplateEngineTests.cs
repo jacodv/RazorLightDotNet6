@@ -43,35 +43,20 @@ namespace Jdv.Razor.Tests
 		}
 
 		public static byte[] Sign(byte[] message, X509Certificate2 cert)
-	{
-		byte[] signed;
-
-		try
 		{
-			// Se pone el Mensaje recibido en un objeto ContentInfo                 
-			ContentInfo infoContenidoMsj = new ContentInfo(message);
-			// Se instancia el CMS Firmado con el ContentInfo
-			SignedCms cmsFirmado = new SignedCms(infoContenidoMsj);
-			// Se instancia el objeto CmsSigner con las caracteristicas del firmante 
-			CmsSigner cmsFirmante = new CmsSigner(cert);
+			byte[] signed;
 
-			cmsFirmante.IncludeOption = X509IncludeOption.EndCertOnly;
+			var contentInfo = new ContentInfo(message);
+			var signedCms = new SignedCms(contentInfo);
+			var cmsSigner = new CmsSigner(cert);
 
-			// Se firma el mensaje PKCS #7 con el certificado
-			cmsFirmado.ComputeSignature(cmsFirmante);
+			cmsSigner.IncludeOption = X509IncludeOption.EndCertOnly;
 
-			signed = cmsFirmado.Encode();
+			signedCms.ComputeSignature(cmsSigner);
 
-			// Retorno el mensaje PKCS #7 firmado . 
+			signed = signedCms.Encode();
 			return signed;
 		}
-		catch (Exception excepcionAlFirmar)
-		{
-			throw new Exception(
-				"ERROR: Procedimiento: FirmarMensaje. Al intentar firmar el mensaje con el certificado del firmante: " +
-				excepcionAlFirmar.Message);
-		}
 	}
-}
 
 }
