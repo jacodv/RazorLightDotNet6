@@ -36,25 +36,24 @@ namespace Jdv.Razor.Tests
 			// action
 			var result = _engine.Convert(data, template, true);
 
-			var signedResult = Sign(Encoding.UTF8.GetBytes(result), X509Certificate2.CreateFromPemFile("personal.pem"));
+			var signedResult = _sign(Encoding.UTF8.GetBytes(result), X509Certificate2.CreateFromPemFile("personal.pem"));
 
 			// assert
 			result.Should().Be("Name is TheName");
 		}
 
-		public static byte[] Sign(byte[] message, X509Certificate2 cert)
+		private static byte[] _sign(byte[] message, X509Certificate2 cert)
 		{
-			byte[] signed;
-
 			var contentInfo = new ContentInfo(message);
 			var signedCms = new SignedCms(contentInfo);
-			var cmsSigner = new CmsSigner(cert);
-
-			cmsSigner.IncludeOption = X509IncludeOption.EndCertOnly;
+			var cmsSigner = new CmsSigner(cert)
+			{
+				IncludeOption = X509IncludeOption.EndCertOnly
+			};
 
 			signedCms.ComputeSignature(cmsSigner);
 
-			signed = signedCms.Encode();
+			var signed = signedCms.Encode();
 			return signed;
 		}
 	}
