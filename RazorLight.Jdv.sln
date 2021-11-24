@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jdv.WebApi", "RazorLight.Jdv\Jdv.WebApi\Jdv.WebApi.csproj", "{618C01F8-B626-4E27-9B36-483F1FA38296}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{5CE40C98-5A27-41BB-B0FE-8E58FA947AEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CE40C98-5A27-41BB-B0FE-8E58FA947AEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CE40C98-5A27-41BB-B0FE-8E58FA947AEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{618C01F8-B626-4E27-9B36-483F1FA38296}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{618C01F8-B626-4E27-9B36-483F1FA38296}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{618C01F8-B626-4E27-9B36-483F1FA38296}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{618C01F8-B626-4E27-9B36-483F1FA38296}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

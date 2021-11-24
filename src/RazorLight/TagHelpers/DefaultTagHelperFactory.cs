@@ -13,7 +13,9 @@ namespace RazorLight.TagHelpers
 	{
 		private readonly ITagHelperActivator _activator;
 		private readonly ConcurrentDictionary<Type, PropertyActivator<PageContext>[]> _injectActions;
+#pragma warning disable CS0649
 		private readonly Func<Type, PropertyActivator<PageContext>[]> _getPropertiesToActivate;
+#pragma warning restore CS0649
 		private static readonly Func<PropertyInfo, PropertyActivator<PageContext>> _createActivateInfo = CreateActivateInfo;
 
 		/// <summary>

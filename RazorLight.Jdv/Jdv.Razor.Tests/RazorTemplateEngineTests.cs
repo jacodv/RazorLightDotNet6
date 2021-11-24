@@ -36,7 +36,7 @@ namespace Jdv.Razor.Tests
 			// action
 			var result = _engine.Convert(data, template, true);
 
-			var signedResult = _sign(Encoding.UTF8.GetBytes(result), X509Certificate2.CreateFromPemFile("personal.pem"));
+//			var signedResult = _sign(Encoding.UTF8.GetBytes(result), X509Certificate2.CreateFromPemFile("personal.pem"));
 
 			// assert
 			result.Should().Be("Name is TheName");

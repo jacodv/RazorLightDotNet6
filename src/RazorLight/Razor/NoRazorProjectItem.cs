@@ -26,7 +26,9 @@ namespace RazorLight.Razor
 			return string.Equals(Key, other?.Key);
 		}
 
+#pragma warning disable CS0628 // New protected member declared in sealed type
 		protected bool Equals(NoRazorProjectItem other)
+#pragma warning restore CS0628 // New protected member declared in sealed type
 		{
 			return Key == other?.Key;
 		}

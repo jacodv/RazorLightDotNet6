@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Razor.Runtime.TagHelpers;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using RazorLight.TagHelpers;
 using System.Buffers;
+using System.Net;
 using RazorLight.Internal.Buffering;
 using RazorLight.Text;
 
@@ -129,7 +130,7 @@ namespace RazorLight
 
 		/// <summary>
 		/// Invokes <see cref="TextWriter.FlushAsync"/> on <see cref="Output"/> and <see cref="m:Stream.FlushAsync"/>
-		/// on the response stream, writing out any buffered content to the <see cref="Microsoft.AspNetCore.Http.HttpResponse.Body"/>.
+		/// on the response stream, writing out any buffered content to the Body/>.
 		/// </summary>
 		/// <returns>A <see cref="Task{HtmlString}"/> that represents the asynchronous flush operation and on
 		/// completion returns an empty <see cref="IHtmlContent"/>.</returns>

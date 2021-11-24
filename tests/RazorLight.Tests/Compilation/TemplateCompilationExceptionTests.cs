@@ -37,7 +37,9 @@ namespace RazorLight.Tests.Compilation
 		[Fact]
 		public void Ensure_InitalizedWtihErrors_FormattedMessage_Matches_CompilationErrors()
 		{
+#pragma warning disable CS0618
 			var exception = new TemplateCompilationException("Error message", new string[]
+#pragma warning restore CS0618
 			{
 				"formattedMessage"
 			});
