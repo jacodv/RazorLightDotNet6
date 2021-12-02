@@ -44,6 +44,8 @@ Host (useful for support):
 
 # Ensure That Dotnet5 works
 
+[Code Branch](https://github.com/jacodv/RazorLightDotNet6/tree/branch_jdevil-Dotnet5-Success)
+
 ## Removed NET472
 Visual Studio 2022 does not want to open the solution and load all the projects.  It keeps hanging when opening the tests project.  Tried changing `net472` to `net480`.  No success
 
@@ -71,3 +73,16 @@ Ensure that all code changes compile and run all unit tests to make sure the cod
 
 - ReSharper
 ![Dotnet5 NCrunch Tests](.%2FDotnet5%20-%20NCrunch%20-%20No%20Tests%20Pass.png)
+
+# Start with .Net 6 upgrade
+
+[Code Branch](https://github.com/jacodv/RazorLightDotNet6/tree/branch_jdevil-Dotnet6-Documententing)
+
+First steps is to change the `Jdv.Razor` projects to `Dotnet 6`.  This is what we are doing in our solution.
+
+## Issues
+Forced to downgrade the language version in `Jdv.Razor.Tests.csproj`.
+- `<LangVersion>9</LangVersion>`
+
+## All tests passed
+Excluding `NCrunch`.  The rest passes as before.
