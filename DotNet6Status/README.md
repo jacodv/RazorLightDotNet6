@@ -86,3 +86,27 @@ Forced to downgrade the language version in `Jdv.Razor.Tests.csproj`.
 
 ## All tests passed
 Excluding `NCrunch`.  The rest passes as before.
+
+# Add .Net6 to RazorLight
+
+[Code Branch](https://github.com/jacodv/RazorLightDotNet6/tree/branch_jdevil-Dotnet6-Upgrade-RazorLight)
+
+## Changes
+The following changes was made to the `RazorLight.csproj`
+
+- `<TargetFrameworks>netstandard2.0;netcoreapp3.1;net5.0;net6.0</TargetFrameworks>`
+- `<ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">`
+```
+<ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.Extensions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Razor" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Physical" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Primitives" Version="6.0.0" />
+    <PackageReference Include="System.Buffers" Version="4.5.1" />
+  </ItemGroup>
+```
