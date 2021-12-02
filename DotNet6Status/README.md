@@ -110,3 +110,50 @@ The following changes was made to the `RazorLight.csproj`
     <PackageReference Include="System.Buffers" Version="4.5.1" />
   </ItemGroup>
 ```
+Removed the language version in `Jdv.Razor.Tests.csproj`.
+- `<LangVersion>9</LangVersion>`
+
+## All tests passed
+Excluding `NCrunch`.  The rest passes as before.
+
+# Add .Net6 to RazorLight.Tests
+
+[Code Branch](https://github.com/jacodv/RazorLightDotNet6/tree/branch_jdevil-Dotnet6-Upgrade-RazorLight-Tests)
+
+## Changes
+The following changes was made to the `RazorLight.csproj`
+
+- `<TargetFrameworks>netcoreapp2.0;netcoreapp3.1;net5.0;net6.0</TargetFrameworks>`
+- `<ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">`
+```
+<ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.0" />
+  </ItemGroup>
+```
+
+## Most tests passed
+Excluding `NCrunch`.  The **VS Tests** pass.  Some ReSharper tests fail with `(Cannot find compilation library location for package 'System.Security.Cryptography.Pkcs')`. 
+![Some ReSharper Tests Fail](.%2FDotnet6%20-%20ReSharper%20-%20Tests%20Fail.png) 
+
+```
+System.InvalidOperationException
+Cannot find compilation library location for package 'System.Security.Cryptography.Pkcs'
+   at Microsoft.Extensions.DependencyModel.CompilationLibrary.ResolveReferencePaths(ICompilationAssemblyResolver resolver, List`1 assemblies)
+   at Microsoft.Extensions.DependencyModel.CompilationLibrary.ResolveReferencePaths()
+   at RazorLight.Compilation.DefaultMetadataReferenceManager.<>c.<Resolve>b__12_1(CompilationLibrary library) in C:\Git\github\RazorLight\src\RazorLight\Compilation\DefaultMetadataReferenceManager.cs:line 61
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at RazorLight.Compilation.DefaultMetadataReferenceManager.Resolve(Assembly assembly, DependencyContext dependencyContext) in C:\Git\github\RazorLight\src\RazorLight\Compilation\DefaultMetadataReferenceManager.cs:line 61
+   at RazorLight.Compilation.DefaultMetadataReferenceManager.Resolve(Assembly assembly) in C:\Git\github\RazorLight\src\RazorLight\Compilation\DefaultMetadataReferenceManager.cs:line 46
+   at RazorLight.Compilation.RoslynCompilationService.EnsureOptions() in C:\Git\github\RazorLight\src\RazorLight\Compilation\RoslynCompilationService.cs:line 84
+   at RazorLight.Compilation.RoslynCompilationService.get_ParseOptions() in C:\Git\github\RazorLight\src\RazorLight\Compilation\RoslynCompilationService.cs:line 61
+   at RazorLight.Compilation.RoslynCompilationService.CreateSyntaxTree(SourceText sourceText) in C:\Git\github\RazorLight\src\RazorLight\Compilation\RoslynCompilationService.cs:line 184
+   at RazorLight.Compilation.RoslynCompilationService.CreateCompilation(String compilationContent, String assemblyName) in C:\Git\github\RazorLight\src\RazorLight\Compilation\RoslynCompilationService.cs:line 162
+   at RazorLight.Compilation.RoslynCompilationService.CompileAndEmit(IGeneratedRazorTemplate razorTemplate) in C:\Git\github\RazorLight\src\RazorLight\Compilation\RoslynCompilationService.cs:line 100
+   at RazorLight.Compilation.RazorTemplateCompiler.CompileAndEmitAsync(RazorLightProjectItem projectItem) in C:\Git\github\RazorLight\src\RazorLight\Compilation\RazorTemplateCompiler.cs:line 223
+   at RazorLight.Compilation.RazorTemplateCompiler.OnCacheMissAsync(String templateKey) in C:\Git\github\RazorLight\src\RazorLight\Compilation\RazorTemplateCompiler.cs:line 177
+   at RazorLight.Compilation.RazorTemplateCompiler.OnCacheMissAsync(String templateKey) in C:\Git\github\RazorLight\src\RazorLight\Compilation\RazorTemplateCompiler.cs:line 187
+   at RazorLight.EngineHandler.CompileTemplateAsync(String key) in C:\Git\github\RazorLight\src\RazorLight\EngineHandler.cs:line 64
+```
