@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
 	<TargetFrameworks>net6.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
@@ -6,6 +6,8 @@
     <DefineConstants>$(DefineConstants);SOME_TEST_DEFINE</DefineConstants>
     <EnableDefaultCompileItems>true</EnableDefaultCompileItems>
     <ImplicitUsings>false</ImplicitUsings>
+    <CopyRefAssembliesToPublishDirectory>true</CopyRefAssembliesToPublishDirectory>
+    <MvcRazorExcludeRefAssembliesFromPublish>false</MvcRazorExcludeRefAssembliesFromPublish>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -51,6 +53,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <!--<PackageReference Include="System.Security.Cryptography.Pkcs" Version="6.0.0" />-->
   </ItemGroup>
 
   <ItemGroup>

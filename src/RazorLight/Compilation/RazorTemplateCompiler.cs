@@ -105,7 +105,7 @@ namespace RazorLight.Compilation
 			TaskCompletionSource<CompiledTemplateDescriptor> taskSource;
 			MemoryCacheEntryOptions cacheEntryOptions;
 
-			// Safe races cannot be allowed when compiling Razor pages. To ensure only one compilation request succeeds
+			// Safe races cannot bane allowed when compiling Razor pages. To ensure only one compilation request succeeds
 			// per file, we'll lock the creation of a cache entry. Creating the cache entry should be very quick. The
 			// actual work for compiling files happens outside the critical section.
 			await _cacheLock.WaitAsync();
@@ -150,7 +150,7 @@ namespace RazorLight.Compilation
 					taskSource.SetResult(item.Descriptor);
 				}
 
-				await _cache.Set(item.NormalizedKey, taskSource.Task, cacheEntryOptions);
+				//TODO: Jdv - Uncomment - await _cache.Set(item.NormalizedKey, taskSource.Task, cacheEntryOptions);
 			}
 			finally
 			{
