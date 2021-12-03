@@ -157,3 +157,66 @@ Cannot find compilation library location for package 'System.Security.Cryptograp
    at RazorLight.Compilation.RazorTemplateCompiler.OnCacheMissAsync(String templateKey) in C:\Git\github\RazorLight\src\RazorLight\Compilation\RazorTemplateCompiler.cs:line 187
    at RazorLight.EngineHandler.CompileTemplateAsync(String key) in C:\Git\github\RazorLight\src\RazorLight\EngineHandler.cs:line 64
 ```
+
+# Add Jdv.Razor.Web.Tests
+Added a new Test project that does web controller testing.  This project uses `<Project Sdk="Microsoft.NET.Sdk.Web">` and targets `<TargetFramework>net6.0</TargetFramework>`. 
+
+[Code Branch](https://github.com/jacodv/RazorLightDotNet6/tree/branch_jdevil-Dotnet6-Upgrade-RazorLight-Tests)
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <PreserveCompilationReferences>true</PreserveCompilationReferences>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="6.2.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
+    <PackageReference Include="NUnit" Version="3.13.2" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.1.0" />
+    <PackageReference Include="NunitXml.TestLogger" Version="3.0.117" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Jdv.Razor\Jdv.Razor.csproj" />
+  </ItemGroup>
+
+</Project>
+```
+
+## Issues
+The `DefaultMetadataReferenceManager.Resolve` does not load any dependencies.  An error is thrown when a simple test is executed. 
+```
+Message: 
+Jdv.Razor.RazorParsingException : One or more errors occurred. (Can't load metadata reference from the entry assembly. Make sure PreserveCompilationContext is set to true in *.csproj file)
+```
+
+```csharp
+      [Test]
+	  public async Task Convert_GivenValidController_ShouldConvertItem()
+	  {
+		  // arrange
+		  Setup();
+		  var expected = "ThePropValue";
+		  var _templateEngine = new RazorTemplateEngine();
+		  var template = "@Model.SomeClass.SomeProp";
+		  var data = new { SomeClass = new { SomeProp = expected } };
+
+		  // action
+		  var result = _templateEngine.Convert(data, template);
+
+		  // assert
+		  result.Should().Be(expected);
+	  }
+```
+
+*VS Tests*
+
+![VS Web Tests](.%2FDotnet6-Web-VSTests-Tests-Fail.png) 
+
+*ReSharper*
+
+![VS Web Tests](.%2FDotnet6-Web-ReSharper-Tests-Fail.png) 
+
