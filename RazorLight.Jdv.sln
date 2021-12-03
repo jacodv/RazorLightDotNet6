@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorLight.Precompile", "sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorLight.Tests", "tests\RazorLight.Tests\RazorLight.Tests.csproj", "{65D0ED4F-B7FA-4A24-ABF9-41D183856CBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jdv.Razor", "RazorLight.Jdv\Jdv.Razor\Jdv.Razor.csproj", "{B67E30E9-3356-4585-978F-49E0676E1C4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jdv.Razor", "RazorLight.Jdv\Jdv.Razor\Jdv.Razor.csproj", "{B67E30E9-3356-4585-978F-49E0676E1C4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jdv.Razor.Tests", "RazorLight.Jdv\Jdv.Razor.Tests\Jdv.Razor.Tests.csproj", "{5CE40C98-5A27-41BB-B0FE-8E58FA947AEB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jdv.Razor.Tests", "RazorLight.Jdv\Jdv.Razor.Tests\Jdv.Razor.Tests.csproj", "{5CE40C98-5A27-41BB-B0FE-8E58FA947AEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jdv.Razor.Web.Tests", "RazorLight.Jdv\Jdv.Razor.Web.Tests\Jdv.Razor.Web.Tests.csproj", "{A4A2D438-95EF-4AE2-B290-9A94F63FC099}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{5CE40C98-5A27-41BB-B0FE-8E58FA947AEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CE40C98-5A27-41BB-B0FE-8E58FA947AEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CE40C98-5A27-41BB-B0FE-8E58FA947AEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4A2D438-95EF-4AE2-B290-9A94F63FC099}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4A2D438-95EF-4AE2-B290-9A94F63FC099}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4A2D438-95EF-4AE2-B290-9A94F63FC099}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4A2D438-95EF-4AE2-B290-9A94F63FC099}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

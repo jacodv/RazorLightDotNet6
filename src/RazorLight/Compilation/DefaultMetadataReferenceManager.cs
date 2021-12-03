@@ -58,12 +58,17 @@ namespace RazorLight.Compilation
 			}
 			else
 			{
+				var excluded = ExcludedAssemblies;
+				var compiledLibraries = dependencyContext.CompileLibraries.Select(x => x.Name);
+				var paths = dependencyContext.CompileLibraries.SelectMany(x => x.ResolveReferencePaths()).ToList();
+
 				references = dependencyContext.CompileLibraries.Where(x => !ExcludedAssemblies.Contains(x.Name)).SelectMany(library => library.ResolveReferencePaths()).ToList();
 
 				if (!references.Any())
 				{
-					throw new RazorLightException("Can't load metadata reference from the entry assembly. " +
-												  "Make sure PreserveCompilationContext is set to true in *.csproj file");
+					throw new RazorLightException(
+						"Can't load metadata reference from the entry assembly. " +
+						"Make sure PreserveCompilationContext is set to true in *.csproj file");
 				}
 			}
 
